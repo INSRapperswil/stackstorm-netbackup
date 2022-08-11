@@ -1,0 +1,28 @@
+---
+description: This Action creates a backup of a network device.
+enabled: true
+entry_point: workflows/backup_network_device.yaml
+name: backup_network_device
+pack: netbackup
+parameters:
+  playbook:
+    required: false
+    type: string
+    default: /netbackup/playbook_ios.yml
+  inventory_file:
+    required: false
+    type: string
+    default: /netbackup/inventory_primary_ip.py
+  working_dir:
+    required: false
+    type: string
+    default: /netbackup
+  var_file:
+    required: false
+    type: string
+    default: '["@/netbackup/.env.yml"]'
+  vault_password_file:
+    required: false
+    type: string
+    default: /netbackup/.secret
+runner_type: orquesta

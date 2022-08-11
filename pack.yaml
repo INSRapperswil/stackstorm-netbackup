@@ -1,0 +1,11 @@
+---
+ref: netbackup
+name: netbackup
+description: create backup of all configs running on network devices
+keywords:
+  - ANSIBLE
+version: 0.0.2
+author: Marco Martinez
+email: ins-support@ost.ch
+dependencies:
+  - ansible

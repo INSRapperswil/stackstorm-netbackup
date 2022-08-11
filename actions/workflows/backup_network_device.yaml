@@ -1,0 +1,27 @@
+version: "1.0"
+description: This Workflow schedules backup of a network device.
+input:
+  - inventory_file
+  - var_file
+  - playbook
+  - working_dir
+  - vault_password_file
+tasks:
+  backup_device:
+    action: ansible.playbook
+    input:
+      cwd: <% ctx(working_dir) %>
+      extra_vars: <% ctx(var_file) %>
+      inventory_file: <% ctx(inventory_file) %>
+      playbook: <% ctx(playbook) %>
+      vault_password_file: <% ctx(vault_password_file) %>
+    next:
+      - do: notify_on_error
+  # Default exception handler
+  notify_on_error:
+    action: core.noop
+    next:
+      - publish:
+          - username: "FAILED"
+          - password: "FAILED"
+        do: fail
