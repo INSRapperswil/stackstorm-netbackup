@@ -15,13 +15,3 @@ tasks:
       inventory_file: <% ctx(inventory_file) %>
       playbook: <% ctx(playbook) %>
       vault_password_file: <% ctx(vault_password_file) %>
-    next:
-      - do: notify_on_error
-  # Default exception handler
-  notify_on_error:
-    action: core.noop
-    next:
-      - publish:
-          - username: "FAILED"
-          - password: "FAILED"
-        do: fail
