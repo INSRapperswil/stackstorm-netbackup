@@ -1,0 +1,19 @@
+---
+name: send_mail
+runner_type: python-script
+description: "Send Mail"
+enabled: true
+entry_point: send_mail.py
+parameters:
+  recipient_address:
+    type: string
+    description: "E-Mail of the user, used as recipient address"
+    required: true
+  mail_sender_address:
+    description: "Sender mail address"
+    type: "string"
+    required: true
+  mail_server:
+    description: "FQDN or IP of the SMTP mail server"
+    type: "string"
+    required: true
