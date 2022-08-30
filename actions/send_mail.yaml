@@ -17,3 +17,7 @@ parameters:
     description: "FQDN or IP of the SMTP mail server"
     type: "string"
     required: true
+  mail_message:
+    description: "E-Mail message"
+    type: "string"
+    required: true
