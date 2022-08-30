@@ -15,3 +15,9 @@ tasks:
       inventory_file: <% ctx(inventory_file) %>
       playbook: <% ctx(playbook) %>
       vault_password_file: <% ctx(vault_password_file) %>
+    next:
+      - when: <% failed() %>
+        do: fail
+        publish:
+          - stdout: <% result().stdout %>
+          - stderr: <% result().stderr %>
